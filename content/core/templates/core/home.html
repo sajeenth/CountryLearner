@@ -1,0 +1,105 @@
+<!doctype html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Covid Tracker</title>
+    <link rel="stylesheet" href='{% static "style.css" %}' type="text/css"/>
+    <style>
+       :root {
+        --primary: #0093E9;
+        --secondary: #80D0C7;
+       }
+       #main {
+        height: 170vh;
+        background-image: linear-gradient(
+        to right bottom,
+        var(--primary),
+        var(--secondary)
+        );
+
+       }
+       h1 {
+        font-family:Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 50px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+       }
+
+       h2 {
+        font-family:Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 45px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        color: #363636;
+        text-decoration: underline;
+       }
+
+       h3 {
+        font-family:Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        font-size: 18px;
+       }
+
+       input[type='text'] {
+        border: 0px;
+        background-color: #d8d8d8;
+        margin-bottom: 1rem;
+       }
+
+       input[type='submit'] {
+        border: 0px;
+        border-radius: 8px;
+        background-color:#e2b9c5;
+        margin-bottom: 2rem;
+       }
+       input[type='submit']:hover {
+        background-color:#ffe5e5;
+       }
+    </style>
+</head>
+<body>
+<div id="main">
+    <h1>Choose a Country to Discover Facts About!</h1>
+    <form method="GET">
+        <div>
+            <label for="country"></label>
+            <input type="text" id="country" value="{{ request.GET.country }}" placeholder="Enter Country:" name="country"/>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    {% if result %}
+        <h2>COVID-19</h2>
+        <h3>{{ result.cases}}</h3>
+        <h3>{{ result.vaccinations}}</h3>
+        <br>
+        <h2>Healthcare</h2>
+        <h3>{{ result.hospitals}}</h3>
+        <h3>{{ result.doctors}}</h3>
+        <h3>{{ result.nurses}}</h3>
+
+        <br>
+        <h2>Market</h2>
+        <h3>{{ result.market}}</h3>
+
+        <br>
+        <h2>Economy</h2>
+        <h3>{{ result.gdp}}</h3>
+        <h3>{{ result.gdp_growth}}</h3>
+        <br>
+        <h2>Labour</h2>
+        <h3>{{ result.employees}}</h3>
+        <h3>{{ result.wage}}</h3>
+        <h3>{{ result.retired_men}}</h3>
+        <h3>{{ result.retired_women}}</h3>
+        <h3>{{ result.unemployed}}</h3>
+        <br>
+        <h2>Government</h2>
+        <h3>{{ result.debt}}</h3>
+        <h3>{{ result.spending}}</h3>
+    {% endif %}
+</div>
+</body>
+</html>
