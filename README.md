@@ -14,5 +14,5 @@ https://user-images.githubusercontent.com/58535997/148663986-93b1448a-d062-498e-
 
 4. Go to terminal and copy:
 
-<h4> <code> python manage.py runserver </code> </h4>
+<p> <code> python manage.py runserver </code> </p>
 
