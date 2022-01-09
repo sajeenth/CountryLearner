@@ -7,3 +7,11 @@ https://user-images.githubusercontent.com/58535997/148663986-93b1448a-d062-498e-
 # How to Use:
 
 1. Download repository as ZIP file.
+
+2. Extract and open file in preferred IDE.
+
+3. Ensure Django framework is downloaded.
+
+4. Go to terminal and copy:
+<code> python manage.py runserver </code>
+
